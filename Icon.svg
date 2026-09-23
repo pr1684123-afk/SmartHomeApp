@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <!-- White background -->
+  <rect width="512" height="512" rx="110" fill="#FFFFFF"/>
+
+  <!-- House roof -->
+  <path
+    d="M120 245 L256 125 L392 245"
+    fill="none"
+    stroke="#0D47A1"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- House -->
+  <path
+    d="M150 225 V390 H362 V225"
+    fill="none"
+    stroke="#0D47A1"
+    stroke-width="34"
+    stroke-linejoin="round"/>
+
+  <!-- Door -->
+  <rect
+    x="225"
+    y="295"
+    width="62"
+    height="95"
+    rx="8"
+    fill="#0D47A1"/>
+
+  <!-- Door handle -->
+  <circle
+    cx="272"
+    cy="345"
+    r="6"
+    fill="#FFFFFF"/>
+
+</svg>

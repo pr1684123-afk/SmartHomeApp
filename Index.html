@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #eef3f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1d3557;
+        }
+
+        .card {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #1d3557;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .count {
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏠 My Smart Home</h1>
+
+
+    <!-- GAS -->
+    <div class="card">
+        <h2>🔥 Gas Detector</h2>
+
+        <button onclick="checkGas()">
+            Check Gas
+        </button>
+
+        <p id="gasReading">
+            Gas reading: --
+        </p>
+
+        <p id="gasStatus">
+            Status: Not checked
+        </p>
+    </div>
+
+
+    <!-- WATER -->
+    <div class="card">
+        <h2>💧 Water Tank</h2>
+
+        <button onclick="checkWater()">
+            Check Water Level
+        </button>
+
+        <p id="waterReading">
+            Water level: --
+        </p>
+
+        <p id="waterStatus">
+            Status: Not checked
+        </p>
+    </div>
+
+
+    <!-- GATE -->
+    <div class="card">
+        <h2>🚪 Smart Gate</h2>
+
+        <p>Gate openings:</p>
+
+        <p id="gateCount" class="count">
+            0
+        </p>
+
+        <button onclick="gateOpened()">
+            Gate Opened
+        </button>
+
+        <p id="gateStatus">
+            Status: Closed
+        </p>
+
+        <p id="lastGate">
+            Last opened: Never
+        </p>
+    </div>
+
+
+    <script>
+
+        // =========================
+        // GAS DETECTOR
+        // =========================
+
+        function checkGas() {
+
+            let gas = Math.floor(Math.random() * 3000);
+
+            document.getElementById("gasReading").innerHTML =
+                "Gas reading: " + gas;
+
+            if (gas >= 1800) {
+
+                document.getElementById("gasStatus").innerHTML =
+                    "Status: ⚠️ GAS ALERT";
+
+            } else {
+
+                document.getElementById("gasStatus").innerHTML =
+                    "Status: ✅ NORMAL";
+            }
+        }
+
+
+        // =========================
+        // WATER TANK
+        // =========================
+
+        function checkWater() {
+
+            let water = Math.floor(Math.random() * 101);
+
+            document.getElementById("waterReading").innerHTML =
+                "Water level: " + water + "%";
+
+            if (water < 20) {
+
+                document.getElementById("waterStatus").innerHTML =
+                    "Status: ⚠️ LOW";
+
+            } else if (water >= 80) {
+
+                document.getElementById("waterStatus").innerHTML =
+                    "Status: ✅ FULL";
+
+            } else {
+
+                document.getElementById("waterStatus").innerHTML =
+                    "Status: ✅ NORMAL";
+            }
+        }
+
+
+        // =========================
+        // SMART GATE
+        // =========================
+
+        let gateCount = 0;
+
+        function gateOpened() {
+
+            gateCount++;
+
+            document.getElementById("gateCount").innerHTML =
+                gateCount;
+
+            document.getElementById("gateStatus").innerHTML =
+                "Status: 🚪 OPEN";
+
+            let currentTime = new Date();
+
+            document.getElementById("lastGate").innerHTML =
+                "Last opened: " + currentTime.toLocaleString();
+
+        }
+
+    </script>
+
+</body>
+</html>
